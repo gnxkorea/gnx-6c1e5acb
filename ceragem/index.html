@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>마주 본 적 없는 등</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f2ea; --ink:#2a2622; --muted:#7a7166; --line:#ddd4c6; --gold:#a8844a; --card:#fbf8f2; --stage:#0d0c0b;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#141210; --ink:#ece6dc; --muted:#a69c8f; --line:#3a342d; --gold:#c9a66b; --card:#1c1916; --stage:#000000;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#141210; --ink:#ece6dc; --muted:#a69c8f; --line:#3a342d; --gold:#c9a66b; --card:#1c1916; --stage:#000000;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:"Noto Serif KR","Apple SD Gothic Neo",serif; font-weight:400;
+  -webkit-text-size-adjust:100%; line-height:1.7;
+}
+main{max-width:880px;margin:0 auto;padding:48px 16px 64px}
+.eyebrow{font-size:12px;letter-spacing:.32em;color:var(--gold);margin:0 0 18px}
+.rule{width:28px;height:1px;background:var(--gold);margin:0 0 22px}
+h1{font-size:40px;font-weight:600;margin:0 0 6px;letter-spacing:.02em}
+.title2{font-size:19px;font-weight:400;margin:0 0 10px}
+.lede{color:var(--muted);font-size:15px;margin:0 0 36px}
+.stage{background:var(--stage);border-radius:4px;overflow:hidden}
+video{display:block;width:100%;aspect-ratio:16/9;background:var(--stage)}
+.cap{display:flex;justify-content:space-between;gap:12px;align-items:center;margin:12px 2px 0;font-size:13px;color:var(--muted)}
+.fs{
+  font:inherit;font-size:13px;color:var(--ink);background:transparent;
+  border:1px solid var(--line);border-radius:999px;padding:7px 16px;cursor:pointer;white-space:nowrap;
+}
+.doc{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  margin-top:40px;padding:22px 22px;background:var(--card);border:1px solid var(--line);border-radius:4px;
+  color:var(--ink);text-decoration:none;
+}
+.doc small{display:block;color:var(--muted);font-size:12px;letter-spacing:.12em;margin-bottom:4px}
+.doc strong{font-weight:600;font-size:17px}
+.doc .go{color:var(--gold);font-size:14px;white-space:nowrap}
+.doc:active{opacity:.7}
+footer{margin-top:44px;padding-top:18px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+footer a{color:inherit}
+@media (min-width:700px){ main{padding-top:72px} h1{font-size:48px} }
+</style>
+</head>
+<body>
+<main>
+  <p class="eyebrow">TV 광고 아이디어 매매 제안</p>
+  <div class="rule"></div>
+  <h1>세라젬</h1>
+  <p class="title2">「한시도 마주 본 적 없는 나의 등」</p>
+  <p class="lede">평생 내 눈으로 볼 수 없는 곳을, 세라젬이 마주하고 돌봅니다.</p>
+
+  <div class="stage">
+    <video id="v" src="video_30s.mp4" poster="poster.jpg" controls playsinline preload="metadata"></video>
+  </div>
+  <div class="cap">
+    <span>시안 영상 · 30초 확장판 · 무음</span>
+    <button class="fs" id="fs" type="button">전체 화면으로 보기</button>
+  </div>
+
+  <a class="doc" href="proposal.pdf" target="_blank" rel="noopener">
+    <span><small>PDF · 13쪽</small><strong>아이디어 매매 제안서</strong></span>
+    <span class="go">새 탭에서 열기 ↗</span>
+  </a>
+
+  <footer>제안사 GNX · <a href="mailto:gnx@gnx.ooo">gnx@gnx.ooo</a> · 2026년 10월</footer>
+</main>
+<script>
+(function(){
+  var v=document.getElementById('v'), b=document.getElementById('fs');
+  b.addEventListener('click',function(){
+    try{
+      if(v.webkitEnterFullscreen){ v.play().catch(function(){}); v.webkitEnterFullscreen(); return; }
+      var r=v.requestFullscreen||v.webkitRequestFullscreen;
+      if(r){ r.call(v); v.play().catch(function(){}); }
+    }catch(e){ v.play().catch(function(){}); }
+  });
+})();
+</script>
+</body>
+</html>
